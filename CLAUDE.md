@@ -56,20 +56,20 @@ Mitigations currently in place: Publications sit *above* Work. The Breaking cand
 | `--ink-3` | `#6C7278` | captions, labels |
 | `--rule` | `#C8CAC3` | borders |
 | `--rule-soft` | `#D9DBD4` | internal dividers |
-| `--deep` | `#1B3A5F` | structure, questions, links |
+| `--deep` | `#1B3A5F` | structure, project titles, links |
 | `--signal` | `#9E2B62` | accent — sparing, high-value only |
 
 **Type**
 
 - **Archivo** (variable, `wdth` 100–125) — headings, org names, section titles. The grotesque is "the built side."
-- **Newsreader** — body prose and, critically, the project questions. The serif is "the biology side."
+- **Newsreader** — body prose and the hero's italic half-line ("Biology asks."). The serif is "the biology side."
 - **IBM Plex Mono** — dates, labels, tool chips, capability lists.
 
 **The two signature devices. Preserve these.**
 
 1. **The hero headline is set in two typefaces.** *"Biology asks."* in serif italic, deep blue. *"I build what answers it."* in expanded Archivo, ink black. The typographic split **is** the positioning: biology on one side, engineering on the other, her as the bridge. Don't flatten it to one face.
 
-2. **Every project opens with the biological question it answered**, in serif italic. This is what stops the page reading as a tool inventory and makes her read as a scientist. Any project added later must have a question, and it must be a real one someone actually needed answered.
+2. **Every project opens with a short title naming what it answered**, set in Archivo (not serif italic — that convention was retired 2026-08). This still has to stop the page reading as a tool inventory: the title should name the biological problem or system, not the tool stack. Any project added later must have a title in that spirit.
 
 **Restraint.** One accent color, used rarely. Motion limited to scroll reveals and hover states. No gradients, no stock icons, no generic hero graphic, no numbered `01 / 02 / 03` markers. `prefers-reduced-motion` is respected and must stay that way.
 

@@ -109,8 +109,8 @@ h1 .build{
 .proj{background:var(--surface);padding:clamp(18px,2.4vw,26px);transition:background .2s}
 .proj:hover{background:#FBFCF8}
 .q{
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:clamp(17.5px,2vw,20px);line-height:1.35;color:var(--deep);
+  font-family:var(--grot);font-weight:600;font-stretch:106%;
+  font-size:clamp(16px,1.8vw,18.5px);line-height:1.3;color:var(--deep);
   margin:0;text-wrap:balance;
 }
 .proj p{margin:12px 0 0;font-size:17px;color:var(--ink-2);max-width:64ch}
@@ -237,29 +237,29 @@ h1 .build{
       <div>
         <h3 class="org">Breaking <span class="place">· Boston, MA</span></h3>
         <p class="jobtitle">Associate Bioinformatics Scientist I</p>
-        <p class="scope">Sole computational scientist at a 25-person company, supporting seven bench scientists across microbiology and protein science — partnering from experimental design through analysis and interpretation. Most of what's below didn't exist before I built it.</p>
+        <p class="scope">Sole computational scientist, supporting seven bench scientists across microbiology and protein science — partnering from experimental design through analysis and interpretation.</p>
 
         <div class="projects">
           <div class="proj">
-            <p class="q">Which of these six thousand proteins is worth a bench scientist's time?</p>
+            <p class="q">Candidate discovery from 6,000+ protein sequences</p>
             <p>I designed the whole funnel. Six thousand-plus sequences through three independent prediction tools at a 70% confidence floor, narrowing to roughly 700 — then convergence: time-course RNA-seq differential expression, secretion prediction across 863 proteins, and Swiss-Prot homology cross-validation to resolve which candidates were genuinely secreted. <b>Six nominated — three with converging multi-evidence support, three novel — all now in wet-lab validation.</b> Safety ran alongside: 54 virulence hits and 53 mobile genetic elements screened across a 5,800-gene genome, no major human-pathogenicity determinants, cleared for downstream development.</p>
             <div class="tools"><span class="tool">fastp</span><span class="tool">HISAT2</span><span class="tool">featureCounts</span><span class="tool">DESeq2</span><span class="tool">SignalP</span><span class="tool">TMHMM</span><span class="tool">AMRFinder</span><span class="tool">Roary</span></div>
           </div>
 
           <div class="proj">
-            <p class="q">What does a protein do when sequence homology has nothing to say about it?</p>
+            <p class="q">Structure-based function prediction for uncharacterized proteins</p>
             <p>Domains of Unknown Function are exactly that — annotated as unknown because nothing similar has been characterized. Structure still has something to say. I built a pipeline pairing Pfam/InterPro assignment with AlphaFold2 prediction, then searching the resulting folds with Foldseek against local MMseqs2 databases hosted on AWS, recovering function where BLAST comes back blank.</p>
             <div class="tools"><span class="tool">AlphaFold2</span><span class="tool">ColabFold</span><span class="tool">Foldseek</span><span class="tool">MMseqs2</span><span class="tool">InterPro</span></div>
           </div>
 
           <div class="proj">
-            <p class="q">Where does a company with no compute actually run its science?</p>
+            <p class="q">Cloud research infrastructure, built from scratch</p>
             <p>I architected the AWS research environment from scratch — EC2, S3, EBS, EFS, IAM, CDK, NVMe, GPU and Spot — replacing paid external compute and aging in-house servers. <b>Trained 15 colleagues; it now serves 10 active users and all company research data.</b> On top of it, the first end-to-end single-genome workflow, taking annotation to candidate in under two hours and generalized for reuse on future organisms.</p>
             <div class="tools"><span class="tool">AWS CDK</span><span class="tool">EC2 / S3 / EFS</span><span class="tool">Docker</span><span class="tool">Nextflow</span><span class="tool">Linux / HPC</span></div>
           </div>
 
           <div class="proj">
-            <p class="q">Who is in this microbial community, and what are they doing?</p>
+            <p class="q">Metagenomic and metatranscriptomic community profiling</p>
             <p>A containerized Nextflow/QIIME2 workflow automating quality filtering, DADA2 denoising, ASV generation, SILVA taxonomy assignment and diversity analysis — then profiled 24 metagenomic and metatranscriptomic samples through it with Kraken2/Bracken and GTDB.</p>
             <div class="tools"><span class="tool">Nextflow</span><span class="tool">QIIME2</span><span class="tool">DADA2</span><span class="tool">Kraken2</span><span class="tool">Bracken</span><span class="tool">GTDB</span><span class="tool">SILVA</span></div>
           </div>
@@ -278,19 +278,19 @@ h1 .build{
 
         <div class="projects">
           <div class="proj">
-            <p class="q">What separates an NK cell that kills from one that doesn't?</p>
+            <p class="q">Single-cell profiling of cytotoxic vs. non-cytotoxic NK cells</p>
             <p>Six healthy donors, twelve cytotoxic and non-cytotoxic samples, roughly a million cells. QC, normalization, clustering, cell-type annotation, marker discovery, differential expression, pathway enrichment — then Monocle trajectories to pull the pseudotime-associated expression programs and cell-state markers that actually distinguish the two states. <b>I layered a MeRIP-seq framework on top</b> to ask whether RNA methylation and transcript-isoform shifts track with immune function.</p>
             <div class="tools"><span class="tool">STAR</span><span class="tool">Seurat</span><span class="tool">Monocle</span><span class="tool">MeRIP-seq</span><span class="tool">GSEA</span><span class="tool">R</span><span class="tool">10X Genomics</span></div>
           </div>
 
           <div class="proj">
-            <p class="q">Can a model tell us why an exon gets skipped, not just whether?</p>
+            <p class="q">Explainable ML for RNA-binding-protein splicing regulation</p>
             <p>Accuracy on its own tells a biologist nothing. I built an ETL pipeline over ENCODE shRNA knockdown data for RNA-binding proteins, opening up differential splicing across more than 10,000 splice junctions, then trained XGBoost over a graph-based representation of mRNA splicing spanning 200+ RBPs. <b>SHAP attribution turned the model back into readable regulatory logic</b> — which proteins matter, where, in what combination. The analysis contributed to a 2026 bioRxiv preprint.</p>
             <div class="tools"><span class="tool">Python</span><span class="tool">XGBoost</span><span class="tool">SHAP</span><span class="tool">rMATS</span><span class="tool">MARVEL</span><span class="tool">ENCODE</span></div>
           </div>
 
           <div class="proj">
-            <p class="q">Which transcriptional programs drive a personalized T-cell response?</p>
+            <p class="q">Transcriptional drivers of personalized CD8+ T-cell response</p>
             <p>Identified CD8+ T-cell transcriptional drivers supporting personalized cancer immunotherapy development, applying DESeq, DEXSeq and GSEA to data generated on a novel single-cell microfluidics platform.</p>
             <div class="tools"><span class="tool">DESeq</span><span class="tool">DEXSeq</span><span class="tool">GSEA</span><span class="tool">Microfluidics scRNA-seq</span></div>
           </div>
@@ -308,7 +308,7 @@ h1 .build{
 
         <div class="projects">
           <div class="proj">
-            <p class="q">How far along the differentiation path is this cell, and how would we know?</p>
+            <p class="q">Erythroid differentiation staging tool for compound screening</p>
             <p>Built an R Shiny application identifying erythroid lineage markers from 10X single-cell data with qPCR validation, <b>narrowing to three high-confidence marker genes</b>, plus custom scoring logic to stage erythroid differentiation for CRISPR and small-molecule screening across 150 compounds. The team kept using the tool after the internship ended.</p>
             <div class="tools"><span class="tool">R Shiny</span><span class="tool">Seurat</span><span class="tool">10X Genomics</span><span class="tool">qPCR</span></div>
           </div>
@@ -326,13 +326,13 @@ h1 .build{
 
         <div class="projects">
           <div class="proj">
-            <p class="q">What makes a kidney organoid vulnerable to nephrotoxic injury?</p>
+            <p class="q">Nephrotoxicity gene-expression profiling in kidney organoids</p>
             <p>Implemented Nextflow NGS pipelines on kidney organoid transcriptomes, calling 1,500+ genetic variants and profiling expression across 7,000 genes, then profiled eight nephrotoxicity-associated genes through integrated genomic and ChIP-seq analysis of 20M sequencing reads in R.</p>
             <div class="tools"><span class="tool">Nextflow</span><span class="tool">Variant calling</span><span class="tool">ChIP-seq</span><span class="tool">R</span></div>
           </div>
 
           <div class="proj">
-            <p class="q">Can we cut 100 kb out of a mouse and get muscle function back?</p>
+            <p class="q">CRISPR excision therapy in a DMD mouse model</p>
             <p>Directed a two-person team applying AAV-delivered CRISPR to excise a 100 kb region in a DMD mouse model — designing the guide constructs and delivery conditions and training the team. <b>Treatment improved partial muscle function.</b></p>
             <div class="tools"><span class="tool">CRISPR/Cas9</span><span class="tool">AAV delivery</span><span class="tool">Guide design</span></div>
           </div>
@@ -350,7 +350,7 @@ h1 .build{
 
         <div class="projects">
           <div class="proj">
-            <p class="q">Which cell types emerge in a kidney organoid, and where do they come from?</p>
+            <p class="q">Single-cell cell-fate mapping in kidney organoids</p>
             <p>Constructed a Seurat single-cell RNA-seq pipeline resolving five distinct cell subtypes and mapped cell fate with Monocle. Alongside it, executed CRISPR/Cas9 editing of six kidney disease genes in iPSC lines and quantified phenotypic rescue across 5,000 genes by bulk RNA-seq.</p>
             <div class="tools"><span class="tool">Seurat</span><span class="tool">Monocle</span><span class="tool">CRISPR/Cas9</span><span class="tool">iPSC</span><span class="tool">Bulk RNA-seq</span></div>
           </div>
