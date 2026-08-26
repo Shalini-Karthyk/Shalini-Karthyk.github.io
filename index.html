@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shalini Karthyk — Computational Biologist</title>
+<meta name="description" content="Computational biologist in Boston. Five years across genomics, single-cell transcriptomics, machine learning and protein structure, pointed at human disease biology.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EBECE6;
+  --surface:#F6F7F2;
+  --ink:#13171A;
+  --ink-2:#4B5257;
+  --ink-3:#6C7278;
+  --rule:#C8CAC3;
+  --rule-soft:#D9DBD4;
+  --deep:#1B3A5F;
+  --signal:#9E2B62;
+
+  --grot:'Archivo',system-ui,sans-serif;
+  --serif:'Newsreader',Georgia,serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+
+  --pad:clamp(20px,5vw,72px);
+  --maxw:1120px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--serif);font-size:18px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.mono{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.soft{color:var(--ink-3)}
+
+/* ---------------- nav ---------------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(235,236,230,.92);backdrop-filter:saturate(150%) blur(10px);border-bottom:1px solid var(--rule-soft)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:16px;height:56px}
+.brand{font-family:var(--grot);font-weight:700;font-size:13.5px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none}
+.brand i{font-style:normal;color:var(--signal)}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);border-bottom:1px solid transparent;padding:3px 0;transition:color .18s,border-color .18s}
+.nav-links a:hover{color:var(--deep);border-bottom-color:var(--deep)}
+@media(max-width:760px){.nav-links a:nth-child(-n+2){display:none}}
+
+/* ---------------- hero ---------------- */
+.hero{padding:clamp(56px,11vw,132px) 0 clamp(48px,8vw,88px)}
+h1{margin:18px 0 0;display:block;text-wrap:balance}
+h1 .ask{
+  display:block;font-family:var(--serif);font-weight:400;font-style:italic;
+  font-size:clamp(27px,4.4vw,50px);line-height:1.08;letter-spacing:-.012em;color:var(--deep);
+}
+h1 .build{
+  display:block;font-family:var(--grot);font-weight:700;font-stretch:116%;
+  font-size:clamp(38px,6.8vw,80px);line-height:.99;letter-spacing:-.028em;
+  margin-top:.12em;
+}
+.statement{font-size:clamp(18px,1.9vw,20.5px);line-height:1.6;color:var(--ink-2);max-width:38em;margin:32px 0 0}
+.statement + .statement{margin-top:14px}
+.statement b{color:var(--ink);font-weight:500}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:36px}
+.chip{
+  font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;
+  text-decoration:none;color:var(--deep);background:var(--surface);border:1px solid var(--rule);
+  padding:9px 14px;transition:background .18s,border-color .18s,color .18s,transform .18s;
+}
+.chip:hover{background:var(--deep);border-color:var(--deep);color:var(--surface);transform:translateY(-1px)}
+.chip.solid{background:var(--deep);border-color:var(--deep);color:var(--surface)}
+.chip.solid:hover{background:var(--signal);border-color:var(--signal)}
+
+/* ---------------- section shell ---------------- */
+.sec{padding:clamp(52px,7.5vw,92px) 0;border-top:1px solid var(--rule)}
+.sec-head{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;margin-bottom:clamp(26px,4vw,42px)}
+.sec-head h2{font-family:var(--grot);font-weight:700;font-stretch:108%;font-size:clamp(23px,3vw,32px);letter-spacing:-.022em;margin:0}
+.sec-head p{margin:0;font-size:16px;color:var(--ink-3);max-width:32em}
+
+/* ---------------- publications ---------------- */
+.pub{display:grid;grid-template-columns:104px 1fr;gap:clamp(14px,3vw,30px);padding:20px 0;border-top:1px solid var(--rule-soft)}
+.pub:first-of-type{border-top:0;padding-top:0}
+@media(max-width:640px){.pub{grid-template-columns:1fr;gap:6px}}
+.pub-st{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);padding-top:7px}
+.pub-st.live{color:var(--signal)}
+.pub h3{margin:0;font-family:var(--serif);font-weight:400;font-size:18.5px;line-height:1.4}
+.pub .auth{margin:7px 0 0;font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--ink-3)}
+.pub .auth b{color:var(--ink);font-weight:600}
+.pub a{color:var(--deep);text-underline-offset:3px}
+.pub a:hover{color:var(--signal)}
+
+/* ---------------- career spine ---------------- */
+.role{display:grid;grid-template-columns:168px 1fr;gap:clamp(16px,3.5vw,44px);padding:clamp(30px,4vw,44px) 0;border-top:1px solid var(--rule-soft)}
+.role:first-of-type{border-top:0;padding-top:0}
+@media(max-width:820px){.role{grid-template-columns:1fr;gap:12px}}
+.when{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);padding-top:6px}
+.org{font-family:var(--grot);font-weight:700;font-stretch:106%;font-size:clamp(20px,2.4vw,25px);letter-spacing:-.018em;margin:0;line-height:1.15}
+.org .place{font-family:var(--serif);font-weight:400;font-size:16px;color:var(--ink-3);letter-spacing:0}
+.jobtitle{font-family:var(--mono);font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--deep);margin:9px 0 0}
+.scope{margin:14px 0 0;color:var(--ink-2);max-width:60ch}
+.flag{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--signal);border:1px solid var(--signal);padding:3px 8px}
+
+.projects{margin-top:26px;display:grid;gap:2px;background:var(--rule-soft);border:1px solid var(--rule-soft)}
+.proj{background:var(--surface);padding:clamp(18px,2.4vw,26px);transition:background .2s}
+.proj:hover{background:#FBFCF8}
+.q{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(17.5px,2vw,20px);line-height:1.35;color:var(--deep);
+  margin:0;text-wrap:balance;
+}
+.proj p{margin:12px 0 0;font-size:17px;color:var(--ink-2);max-width:64ch}
+.proj p b{color:var(--ink);font-weight:500}
+.tools{display:flex;flex-wrap:wrap;gap:5px;margin-top:15px}
+.tool{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;color:var(--ink-3);border:1px solid var(--rule);padding:3px 7px}
+
+/* ---------------- capabilities ---------------- */
+.caps{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(28px,4.5vw,60px)}
+@media(max-width:820px){.caps{grid-template-columns:1fr}}
+.cap{padding:19px 0;border-top:1px solid var(--rule-soft)}
+.caps > .cap:nth-child(1),.caps > .cap:nth-child(2){border-top:0;padding-top:0}
+@media(max-width:820px){.caps > .cap:nth-child(2){border-top:1px solid var(--rule-soft);padding-top:19px}}
+.cap h3{font-family:var(--grot);font-weight:600;font-size:14.5px;letter-spacing:.005em;margin:0 0 7px}
+.cap p{margin:0;font-family:var(--mono);font-size:12.5px;line-height:1.75;color:var(--ink-2)}
+
+/* ---------------- education / projects ---------------- */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,64px)}
+@media(max-width:880px){.two{grid-template-columns:1fr;gap:44px}}
+.sub{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 20px;padding-bottom:10px;border-bottom:1px solid var(--rule)}
+.edu{margin-bottom:24px}
+.edu h3{font-family:var(--grot);font-weight:700;font-size:17px;margin:0}
+.edu p{margin:5px 0 0;font-size:16.5px;color:var(--ink-2)}
+.edu p.when{margin-top:6px;padding-top:0;font-size:11px;color:var(--ink-3)}
+.ap{padding:15px 0;border-top:1px solid var(--rule-soft)}
+.ap:first-of-type{border-top:0;padding-top:0}
+.ap h3{font-family:var(--grot);font-weight:600;font-size:15.5px;line-height:1.3;margin:0}
+.ap p{margin:6px 0 0;font-family:var(--mono);font-size:11.5px;line-height:1.65;color:var(--ink-3)}
+
+/* ---------------- contact ---------------- */
+.contact{padding:clamp(64px,9vw,112px) 0 0;border-top:1px solid var(--rule);text-align:center}
+.contact h2{font-family:var(--grot);font-weight:700;font-stretch:114%;font-size:clamp(28px,4.6vw,50px);letter-spacing:-.028em;margin:14px 0 0}
+.contact .blurb{color:var(--ink-2);margin:18px auto 0;max-width:44ch}
+.contact .chips{justify-content:center;margin-top:32px}
+.foot{margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--rule-soft);padding:20px 0 38px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--ink-3)}
+
+/* ---------------- reveal ---------------- */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s cubic-bezier(.22,.61,.36,1)}
+.rv.in{opacity:1;transform:none}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#top">Shalini Karthyk<i>.</i></a>
+    <div class="nav-links">
+      <a href="#publications">Publications</a>
+      <a href="#work">Work</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="mono soft">Computational Biologist — Boston, MA</p>
+    <h1>
+      <span class="ask">Biology asks.</span>
+      <span class="build">I build what<br>answers it.</span>
+    </h1>
+    <p class="statement">I've spent five years learning both sides of the problem — <b>where biological data actually comes from, and what it takes to make it answer something.</b> Genomics, single-cell transcriptomics, machine learning, protein structure: the methods change, the goal doesn't. Get close enough to a disease or a mechanism to say something useful about it.</p>
+    <p class="statement">Three publications, all in human immunology. Currently the sole computational scientist at a Boston biotechnology company.</p>
+    <div class="chips">
+      <a class="chip solid" href="#work">See the work</a>
+      <a class="chip" href="mailto:karthyk.shalini@gmail.com">karthyk.shalini@gmail.com</a>
+      <a class="chip" href="https://www.linkedin.com/in/shalini-karthyk/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="chip" href="https://github.com/shalini-karthyk" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="publications">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Publications</h2>
+      <p>RNA-binding protein regulation and NK-cell immunology.</p>
+    </div>
+
+    <div class="pub rv">
+      <div class="pub-st live">bioRxiv 2026</div>
+      <div>
+        <h3>Explainable machine learning reveals an RBP regulatory logic of exon skipping</h3>
+        <p class="auth">Raghav JR, Paul A, Anderson R, <b>Karthyk S</b>, et al. · <a href="https://doi.org/10.64898/2026.05.29.728731" target="_blank" rel="noopener">10.64898/2026.05.29.728731</a></p>
+      </div>
+    </div>
+
+    <div class="pub rv">
+      <div class="pub-st">Under review</div>
+      <div>
+        <h3>An integrative function-to-omics and alternative splicing platform to enrich cytotoxic NK cells for cancer immunotherapeutics</h3>
+        <p class="auth">Estevam J, White R, Finocchiaro M, <b>Karthyk S</b>, et al.</p>
+      </div>
+    </div>
+
+    <div class="pub rv">
+      <div class="pub-st">Under review</div>
+      <div>
+        <h3>An innovative single-cell function-to-omics platform to characterize bispecific antibodies</h3>
+        <p class="auth">Estevam J, Finocchiaro M, <b>Karthyk S</b>, et al.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Work</h2>
+      <p>Most recent first. Each project starts with the question someone needed answered.</p>
+    </div>
+
+    <!-- BREAKING -->
+    <div class="role rv">
+      <div class="when">Nov 2024 — Present</div>
+      <div>
+        <h3 class="org">Breaking <span class="place">· Boston, MA</span></h3>
+        <p class="jobtitle">Associate Bioinformatics Scientist I</p>
+        <p class="scope">Sole computational scientist at a 25-person company, supporting seven bench scientists across microbiology and protein science — partnering from experimental design through analysis and interpretation. Most of what's below didn't exist before I built it.</p>
+
+        <div class="projects">
+          <div class="proj">
+            <p class="q">Which of these six thousand proteins is worth a bench scientist's time?</p>
+            <p>I designed the whole funnel. Six thousand-plus sequences through three independent prediction tools at a 70% confidence floor, narrowing to roughly 700 — then convergence: time-course RNA-seq differential expression, secretion prediction across 863 proteins, and Swiss-Prot homology cross-validation to resolve which candidates were genuinely secreted. <b>Six nominated — three with converging multi-evidence support, three novel — all now in wet-lab validation.</b> Safety ran alongside: 54 virulence hits and 53 mobile genetic elements screened across a 5,800-gene genome, no major human-pathogenicity determinants, cleared for downstream development.</p>
+            <div class="tools"><span class="tool">fastp</span><span class="tool">HISAT2</span><span class="tool">featureCounts</span><span class="tool">DESeq2</span><span class="tool">SignalP</span><span class="tool">TMHMM</span><span class="tool">AMRFinder</span><span class="tool">Roary</span></div>
+          </div>
+
+          <div class="proj">
+            <p class="q">What does a protein do when sequence homology has nothing to say about it?</p>
+            <p>Domains of Unknown Function are exactly that — annotated as unknown because nothing similar has been characterized. Structure still has something to say. I built a pipeline pairing Pfam/InterPro assignment with AlphaFold2 prediction, then searching the resulting folds with Foldseek against local MMseqs2 databases hosted on AWS, recovering function where BLAST comes back blank.</p>
+            <div class="tools"><span class="tool">AlphaFold2</span><span class="tool">ColabFold</span><span class="tool">Foldseek</span><span class="tool">MMseqs2</span><span class="tool">InterPro</span></div>
+          </div>
+
+          <div class="proj">
+            <p class="q">Where does a company with no compute actually run its science?</p>
+            <p>I architected the AWS research environment from scratch — EC2, S3, EBS, EFS, IAM, CDK, NVMe, GPU and Spot — replacing paid external compute and aging in-house servers. <b>Trained 15 colleagues; it now serves 10 active users and all company research data.</b> On top of it, the first end-to-end single-genome workflow, taking annotation to candidate in under two hours and generalized for reuse on future organisms.</p>
+            <div class="tools"><span class="tool">AWS CDK</span><span class="tool">EC2 / S3 / EFS</span><span class="tool">Docker</span><span class="tool">Nextflow</span><span class="tool">Linux / HPC</span></div>
+          </div>
+
+          <div class="proj">
+            <p class="q">Who is in this microbial community, and what are they doing?</p>
+            <p>A containerized Nextflow/QIIME2 workflow automating quality filtering, DADA2 denoising, ASV generation, SILVA taxonomy assignment and diversity analysis — then profiled 24 metagenomic and metatranscriptomic samples through it with Kraken2/Bracken and GTDB.</p>
+            <div class="tools"><span class="tool">Nextflow</span><span class="tool">QIIME2</span><span class="tool">DADA2</span><span class="tool">Kraken2</span><span class="tool">Bracken</span><span class="tool">GTDB</span><span class="tool">SILVA</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IEAI -->
+    <div class="role rv">
+      <div class="when">Jan 2024 — Aug 2025</div>
+      <div>
+        <h3 class="org">Institute for Experiential AI, Northeastern University <span class="place">· Boston, MA</span></h3>
+        <p class="jobtitle">Bioinformatician · previously Bioinformatics &amp; ML Analyst, Co-op</p>
+        <p class="scope">Led the single-cell NK-cell program end to end and guided three co-op analysts through it — assigning analyses, reviewing results, running knowledge transfer.</p>
+        <span class="flag">Part-time consulting from Nov 2024 — concurrent with Breaking, both employers aware</span>
+
+        <div class="projects">
+          <div class="proj">
+            <p class="q">What separates an NK cell that kills from one that doesn't?</p>
+            <p>Six healthy donors, twelve cytotoxic and non-cytotoxic samples, roughly a million cells. QC, normalization, clustering, cell-type annotation, marker discovery, differential expression, pathway enrichment — then Monocle trajectories to pull the pseudotime-associated expression programs and cell-state markers that actually distinguish the two states. <b>I layered a MeRIP-seq framework on top</b> to ask whether RNA methylation and transcript-isoform shifts track with immune function.</p>
+            <div class="tools"><span class="tool">STAR</span><span class="tool">Seurat</span><span class="tool">Monocle</span><span class="tool">MeRIP-seq</span><span class="tool">GSEA</span><span class="tool">R</span><span class="tool">10X Genomics</span></div>
+          </div>
+
+          <div class="proj">
+            <p class="q">Can a model tell us why an exon gets skipped, not just whether?</p>
+            <p>Accuracy on its own tells a biologist nothing. I built an ETL pipeline over ENCODE shRNA knockdown data for RNA-binding proteins, opening up differential splicing across more than 10,000 splice junctions, then trained XGBoost over a graph-based representation of mRNA splicing spanning 200+ RBPs. <b>SHAP attribution turned the model back into readable regulatory logic</b> — which proteins matter, where, in what combination. The analysis contributed to a 2026 bioRxiv preprint.</p>
+            <div class="tools"><span class="tool">Python</span><span class="tool">XGBoost</span><span class="tool">SHAP</span><span class="tool">rMATS</span><span class="tool">MARVEL</span><span class="tool">ENCODE</span></div>
+          </div>
+
+          <div class="proj">
+            <p class="q">Which transcriptional programs drive a personalized T-cell response?</p>
+            <p>Identified CD8+ T-cell transcriptional drivers supporting personalized cancer immunotherapy development, applying DESeq, DEXSeq and GSEA to data generated on a novel single-cell microfluidics platform.</p>
+            <div class="tools"><span class="tool">DESeq</span><span class="tool">DEXSeq</span><span class="tool">GSEA</span><span class="tool">Microfluidics scRNA-seq</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FULCRUM -->
+    <div class="role rv">
+      <div class="when">Jun — Aug 2023</div>
+      <div>
+        <h3 class="org">Fulcrum Therapeutics <span class="place">· Cambridge, MA</span></h3>
+        <p class="jobtitle">Bioinformatics Associate Intern</p>
+        <p class="scope">Summer placement on a sickle cell therapeutic program.</p>
+
+        <div class="projects">
+          <div class="proj">
+            <p class="q">How far along the differentiation path is this cell, and how would we know?</p>
+            <p>Built an R Shiny application identifying erythroid lineage markers from 10X single-cell data with qPCR validation, <b>narrowing to three high-confidence marker genes</b>, plus custom scoring logic to stage erythroid differentiation for CRISPR and small-molecule screening across 150 compounds. The team kept using the tool after the internship ended.</p>
+            <div class="tools"><span class="tool">R Shiny</span><span class="tool">Seurat</span><span class="tool">10X Genomics</span><span class="tool">qPCR</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BWH -->
+    <div class="role rv">
+      <div class="when">Sep 2019 — Sep 2021</div>
+      <div>
+        <h3 class="org">Brigham and Women's Hospital <span class="place">· Boston, MA</span></h3>
+        <p class="jobtitle">Technical Research Assistant</p>
+        <p class="scope">Two years split between computational analysis and the bench — which is where I learned what the data costs to produce.</p>
+
+        <div class="projects">
+          <div class="proj">
+            <p class="q">What makes a kidney organoid vulnerable to nephrotoxic injury?</p>
+            <p>Implemented Nextflow NGS pipelines on kidney organoid transcriptomes, calling 1,500+ genetic variants and profiling expression across 7,000 genes, then profiled eight nephrotoxicity-associated genes through integrated genomic and ChIP-seq analysis of 20M sequencing reads in R.</p>
+            <div class="tools"><span class="tool">Nextflow</span><span class="tool">Variant calling</span><span class="tool">ChIP-seq</span><span class="tool">R</span></div>
+          </div>
+
+          <div class="proj">
+            <p class="q">Can we cut 100 kb out of a mouse and get muscle function back?</p>
+            <p>Directed a two-person team applying AAV-delivered CRISPR to excise a 100 kb region in a DMD mouse model — designing the guide constructs and delivery conditions and training the team. <b>Treatment improved partial muscle function.</b></p>
+            <div class="tools"><span class="tool">CRISPR/Cas9</span><span class="tool">AAV delivery</span><span class="tool">Guide design</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HMS -->
+    <div class="role rv">
+      <div class="when">Feb — Jun 2019</div>
+      <div>
+        <h3 class="org">Harvard Medical School, Department of Genetics <span class="place">· Boston, MA</span></h3>
+        <p class="jobtitle">Research Intern, Thesis Placement</p>
+        <p class="scope">Undergraduate thesis work, and where the single-cell thread in everything above starts.</p>
+
+        <div class="projects">
+          <div class="proj">
+            <p class="q">Which cell types emerge in a kidney organoid, and where do they come from?</p>
+            <p>Constructed a Seurat single-cell RNA-seq pipeline resolving five distinct cell subtypes and mapped cell fate with Monocle. Alongside it, executed CRISPR/Cas9 editing of six kidney disease genes in iPSC lines and quantified phenotypic rescue across 5,000 genes by bulk RNA-seq.</p>
+            <div class="tools"><span class="tool">Seurat</span><span class="tool">Monocle</span><span class="tool">CRISPR/Cas9</span><span class="tool">iPSC</span><span class="tool">Bulk RNA-seq</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="sec" id="capabilities">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <h2>Capabilities</h2>
+      <p>Grouped by the question, not the tool list. Everything here has a project behind it.</p>
+    </div>
+    <div class="caps rv">
+      <div class="cap">
+        <h3>Transcriptomics, bulk and single cell</h3>
+        <p>scRNA-seq (Seurat, STAR, Monocle) · 10X Genomics · trajectory and pseudotime · cell-type annotation and marker discovery · bulk RNA-seq and differential expression (DESeq2, DEXSeq) · alternative splicing (rMATS, MARVEL) · pathway enrichment (GSEA)</p>
+      </div>
+      <div class="cap">
+        <h3>Functional and variant genomics</h3>
+        <p>Variant calling (WGS/WES) · GWAS · eQTL · ChIP-seq · ATAC-seq · MeRIP-seq epitranscriptomics · spatial transcriptomics · GEO, ENCODE, GENCODE, Ensembl, UniProt/Swiss-Prot, NCBI</p>
+      </div>
+      <div class="cap">
+        <h3>Machine learning and statistics</h3>
+        <p>XGBoost · Random Forest · SVM · KNN · neural networks · SHAP explainability · clustering and dimensionality reduction · regression · hypothesis testing · experimental design</p>
+      </div>
+      <div class="cap">
+        <h3>Protein and structural bioinformatics</h3>
+        <p>AlphaFold2 · ColabFold · Foldseek · MMseqs2 · Pfam/InterPro · SignalP/TMHMM · structure-informed functional annotation</p>
+      </div>
+      <div class="cap">
+        <h3>Pipelines, cloud and reproducibility</h3>
+        <p>Nextflow · Docker · AWS (EC2, S3, EBS, EFS, IAM, CDK, GPU and Spot) · Linux/Unix · HPC and cluster computing · Git/GitHub · Conda</p>
+      </div>
+      <div class="cap">
+        <h3>Languages and interfaces</h3>
+        <p>Python (pandas, NumPy) · R and Bioconductor · R Shiny · SQL · Bash/Shell · MATLAB</p>
+      </div>
+      <div class="cap">
+        <h3>Microbial and metagenomics</h3>
+        <p>Kraken2 · Bracken · GTDB · SILVA · Prokka · DADA2/QIIME2 · pangenome analysis (Roary) · AMRFinder · virulence and mobile-element screening</p>
+      </div>
+      <div class="cap">
+        <h3>Working with the bench</h3>
+        <p>Experimental design partnership · CRISPR/Cas9 editing · iPSC and organoid models · AAV delivery · qPCR validation — I've generated data as well as analyzed it, and it changes how I design the analysis</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap two">
+    <div class="rv">
+      <p class="sub">Education</p>
+      <div class="edu">
+        <h3>Northeastern University</h3>
+        <p>MS, Bioinformatics · Graduate Certificate, Data Analytics — GPA 4.0 / 4.0</p>
+        <p class="when">Jan 2022 — Jun 2024 · Boston, MA</p>
+      </div>
+      <div class="edu">
+        <h3>SASTRA University</h3>
+        <p>BTech, Bioinformatics — Dean's List, departmental topper in two courses</p>
+        <p class="when">Jul 2015 — Jul 2019 · Tanjore, India</p>
+      </div>
+    </div>
+
+    <div class="rv">
+      <p class="sub">Academic projects</p>
+      <div class="ap">
+        <h3>Machine Learning Classification of Autism Spectrum Disorder</h3>
+        <p>CRISP-DM with association-rule feature weighting, boosting, and bagging</p>
+      </div>
+      <div class="ap">
+        <h3>Unsupervised Subtype Discovery in Leukemia Expression Data</h3>
+        <p>Hierarchical clustering, k-means, ANOVA, and bootstrap validation on Golub and NCI60</p>
+      </div>
+      <div class="ap">
+        <h3>De Novo Transcriptome Assembly and Functional Annotation Pipeline</h3>
+        <p>TransDecoder and hmmscan annotation against Swiss-Prot, KEGG, and Gene Ontology</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="mono soft">Open to mid-level computational biology and bioinformatics roles</p>
+    <h2>Bring me a question.</h2>
+    <p class="blurb">I'm in Boston, looking for discovery-side work in human disease biology — target identification, multi-omic analysis, and machine learning on biological data.</p>
+    <div class="chips">
+      <a class="chip solid" href="mailto:karthyk.shalini@gmail.com">karthyk.shalini@gmail.com</a>
+      <a class="chip" href="https://www.linkedin.com/in/shalini-karthyk/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="chip" href="https://github.com/shalini-karthyk" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="tel:+16173730081">+1 617-373-0081</a>
+    </div>
+  </div>
+  <div class="wrap foot">
+    <span class="mono">Shalini Karthyk — Boston, MA</span>
+    <span class="mono">Updated August 2026</span>
+  </div>
+</section>
+
+<script>
+(function(){
+  var els = document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){
+    Array.prototype.forEach.call(els,function(e){e.classList.add('in');});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+    });
+  },{rootMargin:'0px 0px -8% 0px',threshold:.05});
+  els.forEach(function(e){io.observe(e)});
+})();
+</script>
+
+</body>
+</html>
